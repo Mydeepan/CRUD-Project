@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import DataContext from './dataContainer'
 import { GiSave } from "react-icons/gi";
 import { MdCancel } from "react-icons/md";
+import { Link } from 'react-router-dom';
 
 export const Feed = () => {
     const {postName,setPostName,postAge,setPostAge,postCity,setPostCity,postphone,setPostPhone,listAdd} = useContext(DataContext)
@@ -11,9 +12,9 @@ export const Feed = () => {
         <div className="container " style={{marginTop:'5%'}}>
             <div className="row d-flex justify-content-center">
                 <div className="col-md-5 border border-dark py-2 shadow p-3 mb-5 bg-body rounded">
-                    
+                <Link to={'/'} >    
                     <button className='btn fs-3 text-danger '  style={{marginLeft:'90%'}}><MdCancel /></button>
-                    
+                </Link>    
                     <form className='form-group ' onSubmit={(e)=>listAdd(e)}>
                         <label htmlFor="name" className='form-label h4'>Name:</label>
                         <input 
