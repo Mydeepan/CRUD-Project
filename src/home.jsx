@@ -8,13 +8,12 @@ import DataContext from './dataContainer';
 
 
 export const Home = () => {
-    const {isLoading, error,lists,searchResult,handleDelete,search,setSearch}=useContext(DataContext);
+    const {error,lists,searchResult,handleDelete,search,setSearch}=useContext(DataContext);
   return (
     <main>
      <h1 className='h1  text-center position-sticky sticky-top' style={{ fontSize:'3.5rem', color:'#353b48'}}>CRUD APP</h1>
-     {isLoading && <p className='text-primary text-center m-5 h1'>Loading..</p>}
      {error && <p className=' d-flex justify-content-center m-5 h1 text-danger'>{`Error Connection Refused`}</p>}
-     {!isLoading && !error && (<div className="container ">
+     { !error && (<div className="container ">
        <Link to={'/feed'}>
              <button className='btn btn-success px-3 mb-3'  style={{marginLeft:"75%"}}> <i ><BiAddToQueue /></i> &nbsp;Add</button>
         </Link>

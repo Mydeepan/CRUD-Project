@@ -24,30 +24,28 @@ export const DataProvider =({children})=>{
     const [searchResult,setSearchResult] = useState('');
     const apliurl='http://localhost:3500/lists';
     const [error,setError] = useState(""); 
-    const [isLoading,setLoading] = useState(true);
+;
 
   
 
   useEffect(()=>{
-
-    const fetchData = async  () =>{
-      setLoading(true)
+    
+    const fetchData =  () =>{
       try {
-       await axios.get(apliurl).then(res=>
+         axios.get(apliurl).then(res=>
           setList(res.data)
-        );
+        ).catch(err=> setError(err))
       } catch (err) {
           if(err.res){
-             setError(err.res.data)
-            setError(err.res.status)
-            setError(err.res.headers)
+            console.log(err.res.data)
+           console.log(err.res.status)
+           console.log(err.res.headers)
           }else{
-            setError(err.message);
+           console.log(err.message);
           }
-    }finally{
-      setLoading(false)
+          
     }
-  }
+  };
     fetchData();
     searchList();
   },[lists])
@@ -110,7 +108,7 @@ const searchList = () => {
 }
     return(
         <DataContext.Provider value={{
-          error,isLoading,
+            error,
             searchResult,
             search,setSearch,
             setList,handleDelete,
