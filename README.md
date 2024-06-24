@@ -85,4 +85,3 @@ This project is licensed under the MIT License.
 - [React.js](https://reactjs.org/)
 - [Bootstrap](https://getbootstrap.com/)
 
-(https://github.com/Mydeepan/CRUD-project.git)
